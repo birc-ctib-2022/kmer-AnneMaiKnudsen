@@ -29,7 +29,7 @@ def unique_kmers(x: str, k: int) -> list[str]:
     FIXME: do you want more tests here?
     """
     list=[]
-    for i in range(len(x)-k+1):
+    for i in range(0,len(x)-k+1):
         if x[i:i+k] not in list:
             list.append(x[i:i+k])
     return list
