@@ -41,22 +41,22 @@ def count_kmers(x: str, k: int) -> dict[str, int]:
     Computer all k-mers of x and count how often they appear.
 
     >>> count_kmers('agtagtcg', 3)
-    {'agt': 1, 'gta': 1, 'tag': 1, 'gtc': 1, 'tcg': 1}
+    {'agt': 2, 'gta': 1, 'tag': 1, 'gtc': 1, 'tcg': 1}
     
     FIXME: do you want more tests here?
     """
-    lis=[]
-    
-    for i in range(len(x)-k+1):
-        if x[i:i+k] not in lis:
-            lis.append(x[i:i+k])
-        counts=dict.fromkeys(lis,0)
-    
+    unique=unique_kmers(x,k)
+    all=kmer(x,k)
 
-    for k in lis:
-        counts[k]+=1
+    counts=dict.fromkeys(unique,0)
+    #laver en dict med keys fra unique og giver dem 0
+
+    for i in all:
+        counts[i]+=1
     return counts
-    
+
 
     ...
+
+print(count_kmers('agtagtcg', 3))
 
