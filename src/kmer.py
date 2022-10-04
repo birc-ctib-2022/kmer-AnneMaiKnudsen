@@ -24,7 +24,7 @@ def unique_kmers(x: str, k: int) -> list[str]:
     Computer all unique k-mers of x.
 
     >>> unique_kmers('agtagtcg', 3)
-    ['agt', 'gta', 'tag', 'agt', 'gtc', 'tcg']
+    ['agt', 'gta', 'tag', 'gtc', 'tcg']
 
     FIXME: do you want more tests here?
     """
@@ -46,10 +46,12 @@ def count_kmers(x: str, k: int) -> dict[str, int]:
     FIXME: do you want more tests here?
     """
     lis=[]
+    
     for i in range(len(x)-k+1):
         if x[i:i+k] not in lis:
             lis.append(x[i:i+k])
-    counts=dict.fromkeys(lis,0)
+        counts=dict.fromkeys(lis,0)
+    
 
     for k in lis:
         counts[k]+=1
